@@ -48,13 +48,24 @@ const middleImage = document.getElementById("middle-img"); // rectangular
 const button = document.querySelector("button"); // get started
 const firstH1 = document.getElementsByTagName("h1")[0]; // dom is awesome
 // task1 main-content helpers
-const mainContent = document.getElementsByClassName("text-content");
-const contentKeys = ["features", "about", "services", "product", "vision"];
-const selectFromMain = (itemNum, tagName, idx=0) => mainContent[itemNum].getElementsByTagName(tagName)[idx];
-const theSpot = (x=0, marks="h4") => `${contentKeys[x]}-${(marks == "p") ? "content":marks}`;
+const mainContent = document.getElementsByClassName("text-content"); // collection
+const contentKeys = ["features", "about", "services", "product", "vision"]; // keys
+const selectFromMain = (itemNum, tagName, idx=0) => mainContent[itemNum].getElementsByTagName(tagName)[idx]; // lambda
+const theSpot = (x=0, marks="h4") => `${contentKeys[x]}-${(marks == "p") ? "content":marks}`;  //lambda
 
+// task1 contact information
+const contactSec = document.getElementsByClassName('contact')[0]; // collection
+const contactTitle = contactSec.getElementsByTagName("h4")[0];
+const contactP = contactSec.getElementsByTagName("p");
+const contactAddress = contactP[0];
+const contactPhoneNumber = contactP[1];
+const contactEmail = contactP[2];
+
+// task1 footer
+const copyrightInfo = document.querySelector("footer p");
 
 // task 2
+
 nava.forEach((item, idx) => item.innerText = siteContent["nav"][`nav-item-${1 + idx}`]);
 circleImage.src = "img/header-img.png";
 middleImage.src = "img/mid-page-accent.jpg";
@@ -68,3 +79,9 @@ contentKeys.forEach((x, y) => {
   h4Element.innerText = x;
   pElement.innerText = siteContent['main-content'][pKey];
 });
+
+contactTitle.innerText = siteContent['contact']['contact-h4'];
+contactAddress.innerText = siteContent['contact']['address'];
+contactPhoneNumber.innerText = siteContent['contact']['phone'];
+contactEmail.innerText = siteContent['contact']['email'];
+copyrightInfo.innerText = siteContent['footer']['copyright'];
