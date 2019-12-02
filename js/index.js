@@ -47,6 +47,12 @@ const circleImage = document.getElementById("cta-img"); // circular
 const middleImage = document.getElementById("middle-img"); // rectangular
 const button = document.querySelector("button"); // get started
 const firstH1 = document.getElementsByTagName("h1")[0]; // dom is awesome
+// task1 main-content helpers
+const mainContent = document.getElementsByClassName("text-content");
+const contentKeys = ["features", "about", "services", "product", "vision"];
+const selectFromMain = (itemNum, tagName, idx=0) => mainContent[itemNum].getElementsByTagName(tagName)[idx];
+const theSpot = (x=0, marks="h4") => `${contentKeys[x]}-${(marks == "p") ? "content":marks}`;
+
 
 // task 2
 nava.forEach((item, idx) => item.innerText = siteContent["nav"][`nav-item-${1 + idx}`]);
@@ -54,3 +60,11 @@ circleImage.src = "img/header-img.png";
 middleImage.src = "img/mid-page-accent.jpg";
 firstH1.innerText = "DOM\n Is\n Awesome";
 button.innerText = "Get Started";
+
+contentKeys.forEach((x, y) => {
+  const h4Element = selectFromMain(y, "h4");
+  const pElement = selectFromMain(y, "p");
+  const pKey = theSpot(y, "p");
+  h4Element.innerText = x;
+  pElement.innerText = siteContent['main-content'][pKey];
+});
