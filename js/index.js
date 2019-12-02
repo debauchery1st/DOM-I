@@ -64,6 +64,7 @@ const contactEmail = contactP[2];
 // task1 footer
 const copyrightInfo = document.querySelector("footer p");
 
+const navParent = document.getElementsByTagName("nav")[0];
 // task 2
 
 nava.forEach((item, idx) => item.innerText = siteContent["nav"][`nav-item-${1 + idx}`]);
@@ -85,3 +86,14 @@ contactAddress.innerText = siteContent['contact']['address'];
 contactPhoneNumber.innerText = siteContent['contact']['phone'];
 contactEmail.innerText = siteContent['contact']['email'];
 copyrightInfo.innerText = siteContent['footer']['copyright'];
+
+// task3
+nava.forEach((item, idx) => item.style.color = "green");
+
+let newMenuItem1 = document.createElement("a");
+newMenuItem1.innerText = "4,5,6";
+navParent.appendChild(newMenuItem1);
+
+let newMenuItem2 = document.createElement("a");
+newMenuItem2.innerText = "1,2,3";
+navParent.prepend(newMenuItem2);
